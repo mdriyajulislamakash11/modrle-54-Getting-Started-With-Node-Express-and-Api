@@ -5,6 +5,7 @@ const port = process.env.PROT || 5000;
 
 // medle ware
 app.use(cors());
+app.use(express.json())
 
 const users = [
   { id: 1, name: "akash", email: "akash@gmail.com" },
@@ -20,6 +21,11 @@ app.get("/", (req, res) => {
 app.get("/users", (rec, res) => {
   res.send(users);
 });
+
+app.post("/users", (rec, res) =>{
+  console.log("post api hitting")
+  console.log(rec.body)
+})
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
