@@ -25,6 +25,10 @@ app.get("/users", (rec, res) => {
 app.post("/users", (rec, res) =>{
   console.log("post api hitting")
   console.log(rec.body)
+  const newUsers = rec.body;
+  newUsers.id = users.length + 1;
+  users.push(newUsers);
+  res.send(newUsers)
 })
 
 app.listen(port, () => {
