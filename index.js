@@ -1,6 +1,10 @@
 const express = require("express");
+const cors = require("cors")
 const app = express();
 const port = process.env.PROT || 5000;
+
+// medle ware
+app.use(cors());
 
 const users = [
   { name: "akash", email: "akash@gmail.com" },
